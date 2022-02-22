@@ -273,6 +273,7 @@ export async function getNFTsForOwner(
   const allMintsCandyMachine = await fetchHashTable(
     process.env.NEXT_PUBLIC_CANDY_MACHINE_ID!
   );
+  console.log("allMintsCandyMachine", allMintsCandyMachine);
   const allTokens = [];
   const tokenAccounts = await connection.getParsedTokenAccountsByOwner(
     ownerAddress,
@@ -280,10 +281,10 @@ export async function getNFTsForOwner(
       programId: TOKEN_PROGRAM_ID,
     }
   );
-
   for (let index = 0; index < tokenAccounts.value.length; index++) {
     const tokenAccount = tokenAccounts.value[index];
     const tokenAmount = tokenAccount.account.data.parsed.info.tokenAmount;
+    console.log("tokenaccounts", tokenAmount);
 
     if (
       tokenAmount.amount == "1" &&

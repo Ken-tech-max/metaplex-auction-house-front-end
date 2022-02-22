@@ -6,7 +6,7 @@ import { existsOwnerSPLToken, getNFTsForOwner } from "../utils/candyMachine";
 const rpcHost = process.env.NEXT_PUBLIC_SOLANA_RPC_HOST!;
 const connection = new anchor.web3.Connection(rpcHost);
 
-const useWalletNfts = (props: any) => {
+const useWalletNfts = () => {
   const wallet = useWallet();
   const [isLoading, setIsLoading] = useState(false);
   const [isSPLExists, setSPLExists] = useState(false);
@@ -34,7 +34,8 @@ const useWalletNfts = (props: any) => {
       setSPLExists(isExistSPLToken);
 
       const nftsForOwner = await getNFTsForOwner(connection, wallet.publicKey);
-
+      console.log("nftsForOwner", nftsForOwner);
+      console.log("wallet.publicKey", wallet.publicKey);
       setNfts(nftsForOwner as any);
       // console.log(nftsForOwner);
       setIsLoading(false);

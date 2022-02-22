@@ -216,6 +216,19 @@ export const withdraw = async (directory: any, cmd: any) => {
 //   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 //   .action(async (directory, cmd) => {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+//ts-node src/auction-house-cli.ts sell \
+// -k ~/mywallet.key \
+// -ah HsKwc8dQtm8KLxshw67dwsNePkH6wMXo5Lwn1FuKjVYVS \
+// --buy-price 1 \
+// --mint F7fejo7cT1fRyJxj1W2aWy3aeJz8iqLU9YvbBAzwJGh2 \
+// --token-size 1
+
+//wallet public key: CCJC2s8FDGAs8GqmngE9gviusEuNnkdUwchcYMZ8ZmHB
+// wallet public key: DCDcpZaJUghstQNMHy9VAPnwQe1cGsHq7fbeqkti4kM3
+// Set 1 F7fejo7cT1fRyJxj1W2aWy3aeJz8iqLU9YvbBAzwJGh2 for sale for 1 from your account with Auction House Ee53kiwLVw5XG98gSLNHoQRi4J22XEhz3zsKYY2ttsb7
+
+
 export const sell = async (directory: any, cmd: any) => {
     const {
         keypair,
@@ -683,6 +696,19 @@ export const cancel = async (directory: any, cmd: any) => {
 //   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 //   .action(async (directory, cmd) => {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+//$ ts-node src/auction-house-cli.ts execute_sale 
+// -k ~/mywallet.key \
+// -ah HsKwc8dQtm8KLxshw67dwsNePkH6wMXo5Lwn1FuKjVYVS \
+// --buy-price 2 \
+// --mint DCqt9QQ3ot3qv53EhWrYAWFuh4XgSvFJvLRjgsDnhLTp \
+// --buyer-wallet 3DikCrEsfAVHv9rXENg2Hdmc16L71EjveQEF4NbSfRak \
+// --seller-wallet CCJC2s8FDGAs8GqmngE9gviusEuNnkdUwchcYMZ8ZmHB \
+// --token-size 1
+// wallet public key: CCJC2s8FDGAs8GqmngE9gviusEuNnkdUwchcYMZ8ZmHB
+// wallet public key: DCDcpZaJUghstQNMHy9VAPnwQe1cGsHq7fbeqkti4kM3
+// Accepted 1 DCqt9QQ3ot3qv53EhWrYAWFuh4XgSvFJvLRjgsDnhLTp sale from wallet CCJC2s8FDGAs8GqmngE9gviusEuNnkdUwchcYMZ8ZmHB to 3DikCrEsfAVHv9rXENg2Hdmc16L71EjveQEF4NbSfRak for 2 from your account with Auction House HsKwc8dQtm8KLxshw67dwsNePkH6wMXo5Lwn1FuKjVYVS
+
 export const execute_sale = async (directory: any, cmd: any) => {
     const {
         keypair,
@@ -914,6 +940,17 @@ export const execute_sale = async (directory: any, cmd: any) => {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 //   .action(async (directory: any, cmd: any) => {
 //   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+//ts-node src/auction-house-cli.ts buy \
+// -k ~/mywallet.key \
+// -ah HsKwc8dQtm8KLxshw67dwsNePkH6wMXo5Lwn1FuKjVYVS \
+// --buy-price 2 \
+// --token-size 1 \
+// --mint 7v8kcqCHLih31bp2xwMojGWTMdrcFfzZsYXNbiLiRYgE
+// wallet public key: 3DikCrEsfAVHv9rXENg2Hdmc16L71EjveQEF4NbSfRak
+// wallet public key: DCDcpZaJUghstQNMHy9VAPnwQe1cGsHq7fbeqkti4kM3
+// Made offer for  2
+
 export const buy = async (directory: any, cmd: any) => {
     const {
         keypair,
@@ -1224,6 +1261,29 @@ export const deposit = async (directory: any, cmd: any) => {
 //   )
 //   .action(async (directory, cmd) => {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+//ts-node src/auction-house-cli.ts show -k ~/mywallet.key -ah HsKwc8dQtm8KLxshw67dwsNePkH6wMXo5Lwn1FuKjVYVS
+
+// No treasury mint detected, using SOL.
+// -----
+// Auction House: HsKwc8dQtm8KLxshw67dwsNePkH6wMXo5Lwn1FuKjVYVS
+// Mint: So11111111111111111111111111111111111111112
+// Authority: DCDcpZaJUghstQNMHy9VAPnwQe1cGsHq7fbeqkti4kM3
+// Creator: DCDcpZaJUghstQNMHy9VAPnwQe1cGsHq7fbeqkti4kM3
+// Fee Payer Acct: AcWpR41NPMq73FZUspCiXxoLrJnW7zytgHKY5xqtETkU
+// Treasury Acct: HFW5CY73qN3XK3qEP7ZFxbpBBkQtipPfPQzaDj3mbbY1
+// Fee Payer Withdrawal Acct: DCDcpZaJUghstQNMHy9VAPnwQe1cGsHq7fbeqkti4kM3
+// Treasury Withdrawal Acct: DCDcpZaJUghstQNMHy9VAPnwQe1cGsHq7fbeqkti4kM3
+// Fee Payer Bal: 0
+// Treasury Bal: 0
+// Seller Fee Basis Points: 1000
+// Requires Sign Off: false
+// Can Change Sale Price: false
+// AH Bump: 255
+// AH Fee Bump: 252
+// AH Treasury Bump: 254
+
+
 export const show = async (directory: any, cmd: any) => {
     const { keypair, env, auctionHouse, treasuryMint } = cmd.opts();
 
@@ -1348,6 +1408,15 @@ export const show = async (directory: any, cmd: any) => {
 //   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 //   .action(async (directory, cmd) => {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+//ts-node src/auction-house-cli.ts create_auction_house --keypair ~/mywallet.key -e devnet -sfbp 1000 -ccsp false -rso false
+
+// wallet public key: Gsv13oph2i6nkJvNkVfuzkcbHWchz6viUtEg2vsxQMtM
+// No treasury withdrawal dest detected, using keypair
+// No fee withdrawal dest detected, using keypair
+// No treasury mint detected, using SOL.
+// Created auction house HsKwc8dQtm8KLxshw67dwsNePkH6wMXo5Lwn1FuKjVYVS <--- Your auction house key will be different 
+
 export const create_auction_house = async (directory: any, cmd: any) => {
     const {
         keypair,

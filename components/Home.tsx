@@ -26,6 +26,9 @@ import { AlertState } from "../helpers/utils";
 import { MintButton } from "./MintButton";
 import { PhaseHeader } from "./PhaseHeader";
 import { GatewayProvider } from "@civic/solana-gateway-react";
+import AnNFT from "./AnNFT";
+import useWalletNfts from "../hooks/useWalletNFTs";
+
 
 const MintContainer = styled.div``; // add your styles here
 
@@ -43,9 +46,11 @@ const Home = (props: HomeProps) => {
   const [isMinting, setIsMinting] = useState(false); // true when user got to press MINT
   const wallet = useWallet();
   const [candyMachine, setCandyMachine] = useState<CandyMachineAccount>();
-  const [isLoading, isSPLExists] = useSplToken();
+  // const [isLoading, isSPLExists] = useSplToken();
   // const [refresh, setRefresh] = useState(false);
   // const balance = useWalletBalance();
+  const [isNftLoading, nfts, isSPLExists] = useWalletNfts();
+  console.log(nfts);
   const anchorWallet = useMemo(() => {
     if (
       !wallet ||
@@ -190,17 +195,17 @@ const Home = (props: HomeProps) => {
                 borderRadius: 6,
               }}
             >
-              <div className="">
+              {/* <div className="">
                 <img
                   src="/images/.png"
                   className="mb-6 border-2 rounded border-gray-700"
                 />
-              </div>
+              </div> */}
               <Grid container justifyContent="center" direction="column">
                 <PhaseHeader
                   candyMachine={candyMachine}
                   rpcUrl={rpcUrl}
-                  whiteList={isSPLExists}
+                  whiteList={isSPLExists as boolean}
                 />
 
                 <>
@@ -294,6 +299,14 @@ const Home = (props: HomeProps) => {
           </Alert>
         </Snackbar>
       </Container>
+      <div className="flex flex-col w-full mt-4">
+        <h2 className="text-2xl font-bold text-center text-white">My NFTs</h2>
+        <div className="flex mt-3 gap-x-2">
+          {(nfts as any).map((nft: any, i: number) => {
+            return <AnNFT key={i} nft={nft} />;
+          })}
+        </div>
+      </div>
     </div>
   );
 };
